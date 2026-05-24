@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Webdesign Frankfurt — Full Square Studios</title>
+<meta name="description" content="Webdesign & Branding aus Frankfurt. Chakir El Haji baut Websites, die verkaufen, und Marken, die bleiben — persönlich, direkt, ohne Agentur-Overhead."/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Geist',sans-serif;
+  background:#F5F5F5;
+  color:#0A0A0A;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+img,video{display:block;max-width:100%;}
+
+/* ── TOKENS ── */
+:root{
+  --red:#FF4F17;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --bg:#F5F5F5;
+  --bg2:#EFEFEF;
+  --muted:#6B6B6B;
+  --muted2:rgba(10,10,10,0.5);
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 2px 24px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 48px rgba(0,0,0,0.12);
+}
+
+/* ── LAYOUT ── */
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+.container-lg{max-width:1320px;margin:0 auto;padding:0 32px;}
+.section{padding:80px 0;}
+.divider{height:1px;background:rgba(10,10,10,0.1);margin:0 32px;}
+
+/* ── BADGE ── */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Space Mono',monospace;font-size:11px;font-weight:400;
+  color:var(--black);
+  background:var(--white);
+  border:1px solid rgba(10,10,10,0.12);
+  border-radius:999px;
+  padding:5px 12px;
+}
+.badge img{width:10px;height:10px;}
+.badge-alt{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2);color:var(--white);}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Geist',sans-serif;font-size:14px;font-weight:500;
+  background:var(--black);color:var(--white);
+  border:1.5px solid var(--black);
+  border-radius:999px;padding:12px 22px;
+  cursor:pointer;transition:all .2s;
+}
+.btn:hover{background:var(--red);border-color:var(--red);}
+.btn-secondary{background:transparent;color:var(--black);}
+.btn-secondary:hover{background:var(--black);color:var(--white);}
+.btn-sm{padding:8px 16px;font-size:13px;font-weight:500;}
+
+/* ── HEADER ── */
+.section-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:48px;gap:40px;
+}
+.section-header h2{font-size:clamp(28px,3.5vw,40px);font-weight:600;letter-spacing:-0.02em;max-width:500px;}
+.section-header-right{display:flex;flex-direction:column;gap:12px;max-width:340px;}
+.section-header-right p{font-size:14px;color:var(--muted);line-height:1.6;}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+.nav{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  z-index:100;width:calc(100% - 64px);max-width:1200px;
+}
+.nav-inner{
+  background:var(--black);color:var(--white);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  box-shadow:0 4px 32px rgba(0,0,0,0.2);
+}
+.nav-brand{
+  display:flex;align-items:center;gap:10px;
+  font-weight:600;font-size:14px;letter-spacing:-0.01em;
+}
+.nav-logo-mark{
+  width:20px;height:20px;background:var(--red);border-radius:4px;flex-shrink:0;
+}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{
+  font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);
+  padding:6px 12px;border-radius:999px;
+  transition:all .2s;
+}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.1);}
+.nav-cta{
+  display:flex;align-items:center;gap:8px;
+}
+.nav-cta .btn{padding:9px 18px;font-size:13px;}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{padding-top:140px;padding-bottom:80px;}
+.hero-text{text-align:center;max-width:740px;margin:0 auto 48px;}
+.hero-text h1{
+  font-size:clamp(36px,5vw,60px);font-weight:700;
+  letter-spacing:-0.03em;line-height:1.1;margin:16px 0 20px;
+}
+.hero-text p{font-size:16px;color:var(--muted);line-height:1.6;max-width:520px;margin:0 auto 28px;}
+.hero-btns{display:flex;align-items:center;gap:12px;justify-content:center;}
+
+/* Hero cards */
+.hero-cards{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  max-width:960px;margin:0 auto;
+}
+
+/* Left card */
+.hero-card-left{
+  background:var(--red);border-radius:var(--radius);
+  overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+}
+.hero-card-left .card-inner{
+  margin:20px 20px 0;
+  background:var(--white);border-radius:var(--radius-sm);
+  overflow:hidden;flex:1;
+}
+.hero-card-left .card-inner img{
+  width:100%;height:360px;object-fit:contain;
+  background:#f5f5f5;display:block;
+}
+.hero-card-left .card-inner video{
+  width:100%;height:360px;object-fit:cover;display:block;
+}
+.hero-card-left .card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
+  background:var(--white);margin:0 20px 20px;
+  border-radius:var(--radius-sm);
+}
+.hero-card-left .card-footer span{
+  font-size:12px;font-family:'Space Mono',monospace;color:var(--muted);
+  letter-spacing:0.05em;
+}
+.hero-card-left .card-footer .plus-btn{
+  width:28px;height:28px;background:var(--black);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--white);
+  font-size:16px;font-weight:300;
+}
+
+/* Right card */
+.hero-card-right{
+  background:var(--black);border-radius:var(--radius);
+  overflow:hidden;position:relative;
+  display:flex;flex-direction:column;
+}
+.hero-card-right .card-photo{
+  flex:1;position:relative;overflow:hidden;
+  min-height:400px;
+}
+.hero-card-right .card-photo video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+}
+.hero-card-right .card-footer{
+  display:flex;flex-direction:column;gap:12px;
+  padding:16px 20px;
+  background:rgba(255,255,255,0.06);
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.hero-card-right .card-footer-row{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.hero-card-right .card-footer-desc{
+  font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;
+}
+.hero-card-right .card-footer .info{display:flex;flex-direction:column;gap:2px;}
+.hero-card-right .card-footer .info small{font-size:11px;color:rgba(255,255,255,0.5);font-family:'Space Mono',monospace;letter-spacing:0.05em;}
+.hero-card-right .card-footer .info span{font-size:15px;font-weight:600;color:var(--white);}
+.hero-card-right .card-footer .btn{background:var(--white);color:var(--black);border-color:var(--white);}
+.hero-card-right .card-footer .btn:hover{background:var(--red);border-color:var(--red);color:var(--white);}
+
+/* ══════════════════════════════════════
+   CLIENTS
+══════════════════════════════════════ */
+.clients{
+  padding:48px 0;background:#FFFFFF;
+  border-top:1px solid rgba(10,10,10,0.08);
+  border-bottom:1px solid rgba(10,10,10,0.08);
+}
+.clients-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:28px;
+}
+.clients-marquee{
+  overflow:hidden;
+  position:relative;
+}
+.marquee-track{
+  display:flex;align-items:center;
+  width:max-content;
+  animation:marquee-left 25s linear infinite;
+}
+.marquee-item{
+  display:flex;align-items:center;justify-content:center;
+  width:160px;height:80px;
+  flex-shrink:0;
+  margin-right:64px;
+}
+.marquee-item img{
+  max-width:160px;max-height:64px;
+  width:auto;height:auto;
+  object-fit:contain;
+  opacity:.7;transition:opacity .2s;
+}
+.marquee-item:hover img{opacity:1;}
+@keyframes marquee-left{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+@media (prefers-reduced-motion:reduce){
+  .marquee-track{animation:none;}
+}
+@media (max-width:880px){
+  .marquee-item{margin-right:40px;}
+}
+
+/* ══════════════════════════════════════
+   PROJECTS
+══════════════════════════════════════ */
+.projects-layout{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:40px;
+  align-items:start;
+}
+.projects-layout .header-col{
+  display:flex;flex-direction:column;gap:16px;
+}
+.projects-layout .header-col h2{
+  font-size:clamp(28px,3.5vw,40px);
+  font-weight:600;letter-spacing:-0.02em;
+}
+.projects-layout .header-col p{
+  font-size:14px;color:var(--muted);line-height:1.6;
+}
+.projects-grid{
+  display:flex;flex-direction:column;gap:24px;
+}
+.project-card{
+  display:block;cursor:pointer;color:inherit;
+  text-decoration:none;
+}
+.project-cover{
+  aspect-ratio:16/9;
+  border-radius:12px;
+  overflow:hidden;
+  background:#f8f8f8;
+  margin-bottom:16px;
+}
+.project-cover img{
+  width:100%;height:100%;
+  object-fit:contain;
+  background:#f8f8f8;
+  padding:16px;
+  display:block;
+  transition:transform .5s ease;
+}
+.project-card:hover .project-cover img{transform:scale(1.03);}
+.project-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;background:var(--white);border-radius:var(--radius-sm);
+  gap:16px;
+}
+.project-meta-text{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.project-name{
+  font-size:16px;font-weight:600;transition:color .2s;
+  letter-spacing:-0.01em;
+}
+.project-tags{
+  font-family:'Space Mono',monospace;font-size:11px;
+  color:var(--muted);letter-spacing:.04em;
+}
+.project-card:hover .project-name{color:var(--red);}
+.project-plus{
+  width:32px;height:32px;border-radius:50%;
+  border:1.5px solid var(--black);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.project-card:hover .project-plus{
+  background:var(--red);border-color:var(--red);color:var(--white);
+  transform:rotate(90deg);
+}
+@media (max-width:880px){
+  .projects-layout{grid-template-columns:1fr;gap:24px;}
+}
+
+/* ══════════════════════════════════════
+   SERVICES (dark)
+══════════════════════════════════════ */
+.services-section{
+  background:var(--black);color:var(--white);
+  padding:80px 0;position:relative;overflow:hidden;
+}
+.services-section .section-header h2{color:var(--white);}
+.services-section .section-header-right p{color:rgba(255,255,255,0.6);}
+.services-grid{
+  display:grid;grid-template-columns:280px 1fr;gap:24px;
+}
+.services-info{display:flex;flex-direction:column;gap:16px;}
+.services-info-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);padding:20px;
+}
+.services-info-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;
+}
+.services-info-header span{font-size:11px;font-family:'Space Mono',monospace;color:rgba(255,255,255,0.5);letter-spacing:0.1em;}
+.info-list{display:flex;flex-direction:column;gap:0;}
+.info-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;border-top:1px solid rgba(255,255,255,0.08);
+  font-size:12px;color:rgba(255,255,255,0.7);
+}
+.info-item:first-child{border-top:none;}
+.info-icon{
+  width:20px;height:20px;background:rgba(255,255,255,0.08);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;
+}
+.services-cards{display:flex;flex-direction:column;gap:2px;}
+.service-card{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);padding:24px;
+  cursor:pointer;transition:background .2s;
+}
+.service-card:hover{background:rgba(255,255,255,0.08);}
+.service-card-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:12px;
+}
+.service-icon{
+  width:36px;height:36px;background:var(--red);border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.service-card h3{font-size:16px;font-weight:600;color:var(--white);}
+.service-card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:16px;}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.service-tag{
+  font-size:11px;font-family:'Space Mono',monospace;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:999px;padding:4px 10px;color:rgba(255,255,255,0.6);
+}
+
+/* ══════════════════════════════════════
+   METRICS
+══════════════════════════════════════ */
+.metrics-grid{
+  display:grid;grid-template-columns:1fr 400px;gap:24px;align-items:start;
+}
+.metrics-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.metric-black{
+  background:var(--black);color:var(--white);border-radius:var(--radius);
+  padding:28px;grid-column:span 1;
+}
+.metric-black .num{font-size:52px;font-weight:700;letter-spacing:-0.03em;line-height:1;}
+.metric-black .label{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px;}
+.metric-black .desc{font-size:12px;color:rgba(255,255,255,0.5);margin-top:16px;line-height:1.5;}
+.metric-light{
+  background:var(--white);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+.metric-light .num{font-size:52px;font-weight:700;letter-spacing:-0.03em;line-height:1;color:var(--black);}
+.metric-light .label{font-size:13px;color:var(--muted);}
+.metric-light p{font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+.metric-cta{
+  background:var(--bg2);border-radius:var(--radius);padding:28px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.metric-cta .label{font-size:13px;color:var(--muted);}
+.metric-cta .num{font-size:52px;font-weight:700;letter-spacing:-0.03em;}
+.metrics-photo{
+  border-radius:12px;
+  overflow:hidden;
+  height:100%;
+}
+.metrics-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:30% center;
+  min-height:400px;
+  display:block;
+}
+
+/* ══════════════════════════════════════
+   PROCESS
+══════════════════════════════════════ */
+.process-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.process-card{
+  background:var(--white);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+.process-top{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:20px;
+}
+.process-num{
+  font-size:11px;font-family:'Space Mono',monospace;
+  background:var(--bg2);border-radius:999px;padding:5px 12px;color:var(--muted);
+}
+.process-plus{
+  width:24px;height:24px;color:var(--red);font-size:20px;font-weight:300;
+}
+.process-card h3{font-size:18px;font-weight:600;margin-bottom:8px;}
+.process-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ══════════════════════════════════════
+   PRICING (dark)
+══════════════════════════════════════ */
+.pricing-section{
+  background:var(--black);color:var(--white);padding:80px 0;
+}
+.pricing-section .section-header h2{color:var(--white);}
+.pricing-section .section-header-right p{color:rgba(255,255,255,0.6);}
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:start;
+}
+.pricing-card{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);padding:28px;
+}
+.pricing-top{display:flex;justify-content:space-between;margin-bottom:28px;}
+.pricing-price{display:flex;align-items:baseline;gap:8px;margin-bottom:8px;}
+.pricing-price .amount{font-size:40px;font-weight:700;letter-spacing:-0.03em;}
+.pricing-price .period{font-size:13px;color:rgba(255,255,255,0.5);}
+.pricing-card .desc{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;line-height:1.5;}
+.pricing-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pricing-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;color:rgba(255,255,255,0.7);
+}
+.pricing-item .plus{color:var(--red);font-size:14px;flex-shrink:0;}
+.pricing-support{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius);padding:28px;min-width:220px;
+}
+.pricing-support .amount{font-size:36px;font-weight:700;}
+.pricing-support .period{font-size:13px;color:rgba(255,255,255,0.5);}
+.pricing-support .desc{font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px;line-height:1.5;}
+
+/* ══════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════ */
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+}
+.testimonial-card{
+  background:var(--white);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:16px;
+}
+.testimonial-top{display:flex;align-items:center;gap:12px;}
+.testimonial-avatar{
+  width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  padding:6px;
+}
+.testimonial-avatar img{width:100%;height:100%;object-fit:contain;}
+.testimonial-name{font-size:17px;font-weight:600;letter-spacing:-0.01em;}
+.testimonial-company{font-size:12px;color:var(--muted);}
+.testimonial-text{font-size:13px;color:var(--black);line-height:1.6;flex:1;}
+.testimonial-stars{font-size:14px;color:#F59E0B;letter-spacing:2px;}
+.testimonial-card-black{
+  background:var(--black);color:var(--white);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow-lg);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.testimonial-rating{font-size:48px;font-weight:700;letter-spacing:-0.03em;}
+.testimonial-rating span{font-size:20px;color:rgba(255,255,255,0.4);}
+.testimonial-count{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;}
+.testimonial-avatars{display:flex;margin-top:auto;}
+.testimonial-avatars img{
+  width:32px;height:32px;border-radius:50%;object-fit:cover;
+  border:2px solid var(--black);margin-left:-8px;
+}
+.testimonial-avatars img:first-child{margin-left:0;}
+.testimonial-reviews-text{font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px;}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+.footer{background:var(--black);color:var(--white);padding:60px 0 32px;}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);
+  margin-bottom:32px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:16px;}
+.footer-brand-mark{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;}
+.footer-brand-mark .mark{width:22px;height:22px;background:var(--red);border-radius:4px;flex-shrink:0;}
+.footer-tagline{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:280px;}
+.footer-col h4{font-size:11px;font-family:'Space Mono',monospace;color:rgba(255,255,255,0.4);letter-spacing:0.1em;margin-bottom:16px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:10px;transition:color .2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:rgba(255,255,255,0.4);
+}
+.footer-socials{display:flex;gap:16px;}
+.footer-socials a{color:rgba(255,255,255,0.4);transition:color .2s;font-size:13px;}
+.footer-socials a:hover{color:var(--white);}
+.footer-big{
+  font-size:clamp(28px,5vw,64px);font-weight:700;letter-spacing:-0.04em;
+  color:rgba(255,255,255,0.06);margin:32px 0;line-height:1;
+  overflow:hidden;white-space:nowrap;
+}
+
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+.reveal-delay-3{transition-delay:.3s;}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:900px){
+  .hero-cards{grid-template-columns:1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .metrics-grid{grid-template-columns:1fr;}
+  .pricing-grid{grid-template-columns:1fr;}
+  .testimonials-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .container{padding:0 16px;}
+  .hero-text h1{font-size:32px;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .metrics-cards{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+}
+
+
+/* COOKIE BANNER */
+.cookie-banner{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:200;
+  background:#0A0A0A;color:#FFF;
+  font-family:'Space Mono',monospace;font-size:12px;line-height:1.5;
+  padding:14px 18px;border-radius:12px;
+  display:none;align-items:center;gap:16px;
+  max-width:620px;width:calc(100% - 40px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
+}
+.cookie-banner .cookie-text{flex:1;color:rgba(255,255,255,0.85);}
+.cookie-banner a{color:rgba(255,255,255,0.6);text-decoration:underline;text-underline-offset:2px;}
+.cookie-banner a:hover{color:#FFF;}
+.cookie-btn{
+  background:#FF4F17;color:#FFF;border:none;
+  font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;
+  padding:9px 14px;border-radius:999px;cursor:pointer;flex-shrink:0;
+  transition:background .2s,color .2s;
+}
+.cookie-btn:hover{background:#FFF;color:#0A0A0A;}
+@media(max-width:600px){
+  .cookie-banner{flex-direction:column;align-items:stretch;gap:10px;text-align:center;}
+}
+
+/* CALENDLY MODAL */
+.calendly-modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.85);
+  z-index:1000;
+  display:none;
+  align-items:center;justify-content:center;
+  padding:20px;
+  overflow-y:auto;
+}
+.calendly-modal.is-open{display:flex;}
+.calendly-modal-inner{
+  background:#fff;
+  border-radius:16px;
+  width:100%;max-width:900px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,0.4);
+}
+.calendly-modal-inner iframe{
+  display:block;border:none;
+  width:100%;
+  height:700px;
+}
+.calendly-close{
+  position:absolute;top:12px;right:12px;
+  z-index:2;
+  width:36px;height:36px;border-radius:50%;
+  background:#fff;color:#FF4F17;
+  border:1px solid rgba(10,10,10,0.12);
+  font-size:24px;font-weight:300;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.calendly-close:hover{background:#FF4F17;color:#fff;border-color:#FF4F17;transform:rotate(90deg);}
+@media(max-width:600px){
+  .calendly-modal{padding:0;}
+  .calendly-modal-inner{border-radius:0;max-width:100%;min-height:100vh;}
+  .calendly-modal-inner iframe{height:calc(100vh - 0px);min-height:600px;}
+}
+
+/* MOBILE NAV — Hamburger + Overlay */
+.nav-hamburger{
+  display:none;
+  width:44px;height:44px;
+  background:transparent;border:none;
+  cursor:pointer;padding:10px;
+  position:relative;
+}
+.nav-hamburger span{
+  display:block;width:24px;height:2px;
+  background:#FF4F17;border-radius:2px;
+  position:absolute;left:10px;
+  transition:transform .3s ease,top .3s ease,opacity .2s ease;
+}
+.nav-hamburger span:nth-child(1){top:14px;}
+.nav-hamburger span:nth-child(2){top:21px;}
+.nav-hamburger span:nth-child(3){top:28px;}
+.nav-hamburger.is-active span:nth-child(1){top:21px;transform:rotate(45deg);}
+.nav-hamburger.is-active span:nth-child(2){opacity:0;}
+.nav-hamburger.is-active span:nth-child(3){top:21px;transform:rotate(-45deg);}
+
+.nav-overlay{
+  position:fixed;top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9999;
+  background:#0A0A0A;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  opacity:0;transform:translateY(-20px);
+  pointer-events:none;
+  transition:opacity .35s ease,transform .35s ease;
+  overflow:hidden;
+}
+.nav-overlay.is-open{opacity:1;transform:none;pointer-events:auto;}
+.nav-overlay-links{
+  display:flex;flex-direction:column;gap:20px;align-items:center;
+  position:relative;z-index:2;
+}
+.nav-overlay-links a{
+  display:block;width:100%;text-align:center;
+  font-family:'Geist',sans-serif;
+  font-size:clamp(36px,10vw,64px);
+  font-weight:500;letter-spacing:-0.02em;
+  color:#fff;text-decoration:none;
+  transition:opacity .2s ease;
+}
+.nav-overlay-links a:hover{opacity:.7;}
+.nav-overlay-links a.is-cta{color:#FF4F17;}
+.nav-overlay-close{
+  position:absolute;top:20px;right:20px;z-index:3;
+  width:44px;height:44px;padding:0;margin:0;
+  background:none;background-color:transparent;
+  border:none;outline:none;box-shadow:none;
+  -webkit-appearance:none;appearance:none;
+  color:#FF4F17;font-size:32px;line-height:1;
+  cursor:pointer;font-weight:300;
+  transition:transform .2s ease;
+}
+.nav-overlay-close:focus,.nav-overlay-close:focus-visible,
+.nav-overlay-close:hover,.nav-overlay-close:active{
+  background:none;background-color:transparent;
+  outline:none;box-shadow:none;border:none;
+}
+.nav-overlay-close:hover{transform:rotate(90deg);}
+.nav-overlay-footer{
+  position:absolute;bottom:32px;left:0;right:0;z-index:2;
+  display:flex;flex-direction:column;gap:8px;align-items:center;
+  font-family:'Space Mono',monospace;font-size:12px;
+  color:rgba(255,255,255,0.4);
+}
+.nav-overlay-footer a{color:inherit;text-decoration:none;}
+.nav-overlay-footer a:hover{color:#fff;}
+
+@media(max-width:768px){
+  .nav-inner{padding:12px 20px;}
+  .nav-brand img{height:36px !important;}
+  .nav-links,.nav-cta{display:none !important;}
+  .nav-inner > a.btn,.nav-inner > .btn-sm{display:none !important;}
+  .nav-hamburger{display:flex;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="logos/fss-logo.webp" alt="Full Square Studios" height="36" style="display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="#works">Works</a>
+      <a href="#services">Services</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-sm">Projekt starten →</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen" aria-controls="navOverlay" aria-expanded="false" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-text reveal">
+      <div class="badge">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+        Willkommen bei Full Square Studios
+      </div>
+      <h1>Websites, die verkaufen. Brands, die bleiben.</h1>
+      <p>Ich designe und entwickle Websites, Brand Identities und digitale Produkte für ambitionierte Unternehmen — von Early-Stage Gründern bis zu Marktführern.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn">Projekt starten →</a>
+        <a href="#works" class="btn btn-secondary">Unsere Arbeiten →</a>
+      </div>
+    </div>
+
+    <div class="hero-cards reveal reveal-delay-1">
+      <!-- Left card -->
+      <a href="colorblnd-project.html" class="hero-card-left">
+        <div class="card-inner">
+          <img src="projects/colorblnd.webp" alt="Colorblnd Mgmt — Website Case Study von Full Square Studios" onerror="this.style.background='#1a1a1a';this.style.height='360px';this.removeAttribute('src')"/>
+        </div>
+        <div class="card-footer">
+          <span>PROJECT · 02</span>
+          <div class="plus-btn">+</div>
+        </div>
+      </a>
+
+      <!-- Right card -->
+      <div class="hero-card-right">
+        <div class="card-photo">
+          <video id="heroVideo" preload="none" loop muted playsinline src="hero-video.mp4"></video>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-row">
+            <div class="info">
+              <small>LEAD DESIGNER</small>
+              <span>Chakir El Haji</span>
+            </div>
+            <a href="#about" class="btn btn-sm">Mehr erfahren →</a>
+          </div>
+          <p class="card-footer-desc">Webdesigner &amp; Creative Director aus Frankfurt. Ich baue digitale Auftritte, die Marken eine Stimme geben.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients">
+  <div class="container-lg">
+    <div class="clients-inner">
+      <div class="badge">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+        Unsere Kunden
+      </div>
+      <div class="badge">2020 – 2025</div>
+    </div>
+    <div class="clients-marquee reveal" aria-label="Kunden">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="marquee-item"><img src="logos/nc-projektbau.png" alt="N.C Projektbau" loading="lazy"/></div>
+        <div class="marquee-item"><img src="logos/amy-deluxe.png" alt="Amy Deluxe" loading="lazy"/></div>
+        <div class="marquee-item"><img src="logos/colorblnd.png" alt="Colorblnd" loading="lazy"/></div>
+        <div class="marquee-item"><img src="logos/gp.png" alt="GP" loading="lazy"/></div>
+        <div class="marquee-item"><img src="logos/pearly-gates.png" alt="Pearly Gates" loading="lazy"/></div>
+        <div class="marquee-item"><img src="logos/tell-a-friend.png" alt="Tell a Friend" loading="lazy"/></div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="marquee-item" aria-hidden="true"><img src="logos/nc-projektbau.png" alt="" loading="lazy"/></div>
+        <div class="marquee-item" aria-hidden="true"><img src="logos/amy-deluxe.png" alt="" loading="lazy"/></div>
+        <div class="marquee-item" aria-hidden="true"><img src="logos/colorblnd.png" alt="" loading="lazy"/></div>
+        <div class="marquee-item" aria-hidden="true"><img src="logos/gp.png" alt="" loading="lazy"/></div>
+        <div class="marquee-item" aria-hidden="true"><img src="logos/pearly-gates.png" alt="" loading="lazy"/></div>
+        <div class="marquee-item" aria-hidden="true"><img src="logos/tell-a-friend.png" alt="" loading="lazy"/></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<div class="divider"></div>
+<section class="section" id="works">
+  <div class="container">
+    <div class="projects-layout">
+      <div class="header-col reveal">
+        <div class="badge">
+          <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+          Projekte
+        </div>
+        <h2>Ausgewählte Projekte.</h2>
+        <p>Von SaaS-Plattformen bis hin zu digitalen Marken — meine Projekte sind für Performance, Skalierung und Wirkung gebaut.</p>
+      </div>
+
+      <div class="projects-grid">
+        <a href="tell-a-friend-project.html" class="project-card reveal">
+          <div class="project-cover">
+            <img src="projects/tell-a-friend.webp" alt="Tell a Friend — Website Case Study von Full Square Studios" loading="lazy"/>
+          </div>
+          <div class="project-bottom">
+            <div class="project-meta-text">
+              <span class="project-name">Tell a Friend</span>
+              <span class="project-tags">Website · Community · Branding</span>
+            </div>
+            <div class="project-plus" aria-hidden="true">+</div>
+          </div>
+        </a>
+
+        <a href="colorblnd-project.html" class="project-card reveal reveal-delay-1">
+          <div class="project-cover">
+            <img src="projects/colorblnd.webp" alt="Colorblnd Mgmt — Website Case Study von Full Square Studios" loading="lazy"/>
+          </div>
+          <div class="project-bottom">
+            <div class="project-meta-text">
+              <span class="project-name">Colorblnd Mgmt</span>
+              <span class="project-tags">Website · Talent Agency · Design</span>
+            </div>
+            <div class="project-plus" aria-hidden="true">+</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header reveal" style="display:block;">
+      <div class="badge badge-alt" style="margin-bottom:16px;">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+        Services
+      </div>
+      <h2>Mehr Kunden.<br/>Weniger Aufwand.</h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;max-width:520px;margin-top:12px;">Für lokale Unternehmen, Startups und Creative Brands die online sichtbar werden wollen.</p>
+    </div>
+
+    <div class="services-grid reveal" style="grid-template-columns:1fr;">
+      <div class="services-cards">
+        <div class="service-card">
+          <div class="service-card-header">
+            <h3>Website &amp; Development</h3>
+          </div>
+          <p>Professionelle Websites die schnell laden, gut aussehen und Kunden gewinnen. Von der Landing Page bis zur kompletten Web-Präsenz.</p>
+          <div class="service-tags">
+            <span class="service-tag">Web Design</span>
+            <span class="service-tag">Development</span>
+            <span class="service-tag">CMS</span>
+            <span class="service-tag">Mobile</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card-header">
+            <h3>Brand Identity</h3>
+          </div>
+          <p>Logo, Farben, Typografie — ein Markensystem das zu dir passt und dich von der Konkurrenz abhebt.</p>
+          <div class="service-tags">
+            <span class="service-tag">Logo</span>
+            <span class="service-tag">Corporate Design</span>
+            <span class="service-tag">Visitenkarten</span>
+            <span class="service-tag">Guidelines</span>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card-header">
+            <h3>Digital Setup</h3>
+          </div>
+          <p>Google Business, WhatsApp Integration, Buchungssystem — damit Kunden dich finden und direkt buchen.</p>
+          <div class="service-tags">
+            <span class="service-tag">Google Business</span>
+            <span class="service-tag">WhatsApp</span>
+            <span class="service-tag">Buchungssystem</span>
+            <span class="service-tag">SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="divider"></div>
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal" style="display:block;">
+      <div class="badge" style="margin-bottom:16px;">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+        Metrics
+      </div>
+      <h2>Hi, ich bin Chakir.</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.6;max-width:520px;margin-top:12px;">Webdesigner aus Frankfurt — persönlich, direkt, ohne Agentur-Overhead.</p>
+    </div>
+
+    <div class="metrics-grid reveal">
+      <div class="metrics-cards">
+        <div class="metric-black">
+          <div class="num">7</div>
+          <div class="label">Jahre Erfahrung</div>
+          <div class="desc">Webdesign &amp; Branding für lokale Unternehmen, Agenturen und Startups.</div>
+        </div>
+        <div class="metric-light">
+          <p>Von der Landing Page bis zum kompletten Markensystem.</p>
+          <div class="num">48+</div>
+          <div class="label">Projekte abgeschlossen</div>
+        </div>
+        <div class="metric-cta" style="grid-column:span 2;">
+          <div class="label">Google Bewertung</div>
+          <div class="num">5,0 ★</div>
+          <a href="#contact" class="btn" style="margin-top:8px;align-self:flex-start;">Projekt starten →</a>
+        </div>
+      </div>
+      <div class="metrics-photo">
+        <img src="person.jpg" alt="Chakir El Haji, Webdesigner aus Frankfurt" loading="lazy" onerror="this.parentElement.style.background='#1a1a1a';this.removeAttribute('src')"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<div class="divider"></div>
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal" style="display:block;">
+      <div class="badge" style="margin-bottom:16px;">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+        Prozess
+      </div>
+      <h2>So arbeite ich.</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.6;max-width:520px;margin-top:12px;">Klar, direkt und ohne unnötige Abstimmungsschleifen — vom ersten Gespräch bis zum Launch.</p>
+    </div>
+
+    <div class="process-grid reveal">
+      <div class="process-card">
+        <div class="process-top">
+          <span class="process-num">01</span>
+          <span class="process-plus">+</span>
+        </div>
+        <h3>Kennenlernen</h3>
+        <p>Ich rede mit dir über dein Business, deine Ziele und was du wirklich brauchst. Kein Fragebogen — einfach ein ehrliches Gespräch.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-top">
+          <span class="process-num">02</span>
+          <span class="process-plus">+</span>
+        </div>
+        <h3>Konzept &amp; Planung</h3>
+        <p>Ich entwickle Struktur, Inhalte und visuellen Stil — bevor eine Zeile Code geschrieben wird.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-top">
+          <span class="process-num">03</span>
+          <span class="process-plus">+</span>
+        </div>
+        <h3>Umsetzung</h3>
+        <p>Ich baue deine Website mit allen Funktionen: Buchungssystem, WhatsApp, Chatbot — alles sauber integriert.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-top">
+          <span class="process-num">04</span>
+          <span class="process-plus">+</span>
+        </div>
+        <h3>Launch &amp; Übergabe</h3>
+        <p>Go-live, letzter Check, und du bekommst alles was du brauchst um selbst kleine Änderungen zu machen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<div class="divider"></div>
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal" style="display:block;">
+      <div class="badge" style="margin-bottom:16px;">
+        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+        Testimonials
+      </div>
+      <h2>Das sagen meine Kunden</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.6;max-width:520px;margin-top:12px;">Full Square Studios hilft Unternehmen, hochperformante digitale Erlebnisse zu schaffen.</p>
+    </div>
+
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar"><img src="logos/tell-a-friend.png" alt="Tell a Friend" loading="lazy"/></div>
+          <div class="testimonial-name">Tell a Friend</div>
+        </div>
+        <p class="testimonial-text">Chakir hat meine Website von Grund auf neu gebaut — schnell, clean, genau wie ich es wollte.</p>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar"><img src="logos/colorblnd.png" alt="Colorblnd Mgmt" loading="lazy"/></div>
+          <div class="testimonial-name">Colorblnd Mgmt</div>
+        </div>
+        <p class="testimonial-text">Das Ergebnis hat uns sofort überzeugt. Professionell, modern und auf den Punkt.</p>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-top">
+          <div class="testimonial-avatar"><img src="logos/nc-projektbau.png" alt="NC Projektbau" loading="lazy"/></div>
+          <div class="testimonial-name">NC Projektbau</div>
+        </div>
+        <p class="testimonial-text">Endlich eine Website die zu mir passt. Unkompliziert und genau was ich gebraucht habe.</p>
+        <div class="testimonial-stars">★★★★★</div>
+      </div>
+
+      <div class="testimonial-card-black">
+        <div>
+          <div class="testimonial-rating">5,0<span>/5</span></div>
+          <div class="testimonial-count" style="color:rgba(255,255,255,0.5);font-size:13px;">Google Bewertung · 7 Rezensionen</div>
+        </div>
+        <div>
+          <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Ich habe 48+ digitale Projekte geliefert, die Unternehmen, Agenturen und Startups beim Wachsen helfen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section style="background:var(--black);padding:80px 0;" id="contact">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;text-align:center;">
+    <div class="badge badge-alt" style="margin-bottom:24px;">
+      <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0L5.9 4.1L10 5L5.9 5.9L5 10L4.1 5.9L0 5L4.1 4.1Z" fill="currentColor"/></svg>
+      Kontakt
+    </div>
+    <h2 style="font-size:clamp(32px,5vw,56px);font-weight:700;color:white;letter-spacing:-0.03em;margin-bottom:16px;">Bereit loszulegen?</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;">Buche ein kostenloses 15-Minuten Gespräch — ich nehme mir Zeit für deine Fragen und zeige dir, wie ich dir helfen kann.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <button type="button" data-calendly class="btn" style="background:var(--red);border-color:var(--red);font-size:15px;padding:14px 28px;">
+        📅 Termin buchen
+      </button>
+      <a href="https://wa.me/491738996449" target="_blank" class="btn" style="background:transparent;border-color:rgba(255,255,255,0.3);color:white;font-size:15px;padding:14px 28px;">
+        💬 WhatsApp schreiben
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logos/fss-logo.webp" alt="Full Square Studios" style="opacity:0.9;width:auto;max-height:32px;max-width:200px;display:block;">
+        <p class="footer-tagline">Webdesign &amp; Branding aus Frankfurt. Persönlich, direkt, ohne Agentur-Overhead.</p>
+      </div>
+      <div class="footer-col">
+        <h4>STUDIO</h4>
+        <a href="#works">Works</a>
+        <a href="#services">Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>KONTAKT</h4>
+        <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+        <a href="https://wa.me/491738996449" target="_blank">WhatsApp schreiben →</a>
+        <a href="#" data-calendly>Termin buchen →</a>
+      </div>
+      <div class="footer-col">
+        <h4>SOCIAL</h4>
+        <a href="https://www.instagram.com/fullsquare.studios/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Full Square Studios</span>
+      <div class="footer-socials">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CALENDLY MODAL -->
+<div class="calendly-modal" id="calendlyModal" aria-hidden="true" role="dialog" aria-label="Termin buchen">
+  <div class="calendly-modal-inner">
+    <button class="calendly-close" id="calendlyClose" aria-label="Schließen" type="button">&times;</button>
+    <iframe data-src="https://calendly.com/fullsquarestudios/kostenloses-erstgesprach" title="Termin buchen — Calendly" frameborder="0" allow="camera; microphone; fullscreen"></iframe>
+  </div>
+</div>
+<script>
+(function(){
+  const modal=document.getElementById('calendlyModal');
+  const closeBtn=document.getElementById('calendlyClose');
+  const iframe=modal&&modal.querySelector('iframe');
+  if(!modal||!closeBtn||!iframe) return;
+  function open(){
+    if(!iframe.src) iframe.src=iframe.dataset.src;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('[data-calendly]').forEach(el=>{
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      open();
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',function(e){
+    if(e.target===modal) close();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&modal.classList.contains('is-open')) close();
+  });
+})();
+</script>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+// Animated Noise Canvas
+function createNoiseCanvas(selector) {
+  const targets = document.querySelectorAll(selector);
+  targets.forEach(el => {
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = `
+      position:absolute;inset:0;width:100%;height:100%;
+      pointer-events:none;opacity:0.08;border-radius:inherit;z-index:1;
+    `;
+    el.style.position = 'relative';
+    el.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let animId;
+
+    function resize() {
+      canvas.width = el.offsetWidth;
+      canvas.height = el.offsetHeight;
+    }
+
+    function drawNoise() {
+      const w = canvas.width;
+      const h = canvas.height;
+      if (!w || !h) return;
+      const imageData = ctx.createImageData(w, h);
+      const data = imageData.data;
+      for (let i = 0; i < data.length; i += 4) {
+        const v = Math.random() * 255;
+        data[i] = v;
+        data[i+1] = v;
+        data[i+2] = v;
+        data[i+3] = 255;
+      }
+      ctx.putImageData(imageData, 0, 0);
+      animId = requestAnimationFrame(drawNoise);
+    }
+
+    resize();
+    drawNoise();
+    window.addEventListener('resize', resize);
+  });
+}
+
+createNoiseCanvas('.nav-inner, .footer, .project-metrics, .project-cta, .hero-card-right, .testimonial-card-black');
+</script>
+
+<!-- HERO VIDEO LAZY PLAY -->
+<script>
+(function(){
+  const v=document.getElementById('heroVideo');
+  if(!v) return;
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        v.play().catch(()=>{});
+      } else {
+        v.pause();
+      }
+    });
+  },{threshold:0.25});
+  io.observe(v);
+})();
+</script>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">Ich verwende technisch notwendige Cookies. Keine Tracking-Cookies. <a href="datenschutz.html">Mehr erfahren →</a></p>
+  <button class="cookie-btn" id="cookieAccept">Verstanden</button>
+</div>
+<script>
+(function(){
+  const KEY='fss-cookie-consent';
+  const DAYS=365;
+  const banner=document.getElementById('cookieBanner');
+  const btn=document.getElementById('cookieAccept');
+  if(!banner||!btn) return;
+  const stored=localStorage.getItem(KEY);
+  if(stored){
+    const ts=parseInt(stored,10);
+    if(!isNaN(ts) && Date.now()-ts < DAYS*86400000) return;
+  }
+  banner.style.display='flex';
+  btn.addEventListener('click',function(){
+    localStorage.setItem(KEY,Date.now().toString());
+    banner.style.display='none';
+  });
+})();
+</script>
+
+<!-- MOBILE NAV OVERLAY -->
+<aside class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <button class="nav-overlay-close" id="navOverlayClose" aria-label="Menü schließen" type="button">&times;</button>
+  <nav class="nav-overlay-links">
+    <a href="#works">Works</a>
+    <a href="#services">Services</a>
+    <a href="#" class="is-cta" data-calendly>Projekt starten →</a>
+  </nav>
+  <div class="nav-overlay-footer">
+    <a href="https://www.instagram.com/fullsquare.studios/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+  </div>
+</aside>
+
+<script>
+(function(){
+  const burger=document.getElementById('navHamburger');
+  const overlay=document.getElementById('navOverlay');
+  const closeBtn=document.getElementById('navOverlayClose');
+  if(!burger||!overlay) return;
+  function open(){
+    burger.classList.add('is-active');
+    burger.setAttribute('aria-expanded','true');
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('is-active');
+    burger.setAttribute('aria-expanded','false');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',function(){
+    if(overlay.classList.contains('is-open')) close(); else open();
+  });
+  if(closeBtn) closeBtn.addEventListener('click',close);
+  overlay.querySelectorAll('.nav-overlay-links a').forEach(a=>{
+    a.addEventListener('click',close);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('is-open')) close();
+  });
+  // Noise canvas
+  const canvas=document.createElement('canvas');
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.08;z-index:1;';
+  overlay.insertBefore(canvas,overlay.firstChild);
+  const ctx=canvas.getContext('2d');
+  function resize(){canvas.width=overlay.offsetWidth;canvas.height=overlay.offsetHeight;}
+  function draw(){
+    if(overlay.classList.contains('is-open')){
+      const w=canvas.width,h=canvas.height;
+      if(w&&h){
+        const id=ctx.createImageData(w,h);
+        const d=id.data;
+        for(let i=0;i<d.length;i+=4){
+          const v=Math.random()*255;d[i]=v;d[i+1]=v;d[i+2]=v;d[i+3]=255;
+        }
+        ctx.putImageData(id,0,0);
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize();
+  draw();
+  window.addEventListener('resize',resize);
+})();
+</script>
+</body>
+</html>

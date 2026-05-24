@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Colorblnd Mgmt — Case Study | Full Square Studios</title>
+<meta name="description" content="Case Study: Website für Colorblnd Mgmt, eine Model- &amp; Talent-Agentur. Umgesetzt von Full Square Studios — Webdesign &amp; Branding aus Frankfurt."/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Geist',sans-serif;background:#F5F5F5;color:#0A0A0A;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+:root{
+  --red:#FF4F17;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --bg:#F5F5F5;
+  --bg2:#EFEFEF;
+  --muted:#6B6B6B;
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow:0 2px 24px rgba(0,0,0,0.08);
+}
+
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+
+/* BADGE */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Space Mono',monospace;font-size:11px;
+  color:var(--black);background:var(--white);
+  border:1px solid rgba(10,10,10,0.12);
+  border-radius:999px;padding:5px 12px;
+}
+
+/* BTN */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Geist',sans-serif;font-size:14px;font-weight:500;
+  background:var(--black);color:var(--white);
+  border:1.5px solid var(--black);border-radius:999px;
+  padding:12px 22px;cursor:pointer;transition:all .2s;
+}
+.btn:hover{background:var(--red);border-color:var(--red);}
+.btn-sm{padding:9px 18px;font-size:13px;font-weight:500;}
+
+/* NAV */
+.nav{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  z-index:100;width:calc(100% - 64px);max-width:1200px;
+}
+.nav-inner{
+  background:var(--black);color:var(--white);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  box-shadow:0 4px 32px rgba(0,0,0,0.2);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;}
+.nav-logo-mark{width:20px;height:20px;background:var(--red);border-radius:4px;flex-shrink:0;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);padding:6px 12px;border-radius:999px;transition:all .2s;}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.1);}
+.nav-cta{display:flex;align-items:center;gap:8px;}
+
+/* PROJECT HEADER */
+.project-header{padding-top:140px;padding-bottom:48px;}
+.project-header-top{
+  display:grid;grid-template-columns:220px 1fr auto;
+  align-items:start;gap:48px;margin-bottom:0;
+}
+.project-label{
+  font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);
+  letter-spacing:0.08em;padding-top:20px;
+}
+.project-title{
+  font-size:clamp(40px,6vw,72px);font-weight:700;
+  letter-spacing:-0.03em;line-height:1;
+  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+}
+.project-year{
+  font-size:clamp(16px,2vw,22px);font-weight:400;
+  color:var(--muted);letter-spacing:-0.01em;
+}
+.project-desc{
+  font-size:15px;color:var(--muted);line-height:1.6;
+  max-width:520px;margin-top:16px;
+}
+
+/* DETAILS */
+.project-details{
+  margin:32px 0;
+  border-top:1px solid rgba(10,10,10,0.1);
+}
+.detail-row{
+  display:grid;grid-template-columns:220px 1fr;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:1px solid rgba(10,10,10,0.08);
+  gap:48px;
+}
+.detail-label{font-size:13px;color:var(--muted);}
+.detail-value{font-size:14px;font-weight:500;text-align:right;}
+
+/* METRICS */
+.project-metrics{
+  background:var(--black);color:var(--white);
+  border-radius:var(--radius);padding:24px 28px;
+  margin-bottom:48px;
+  position:relative;overflow:hidden;
+}
+.project-metrics::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:256px 256px;
+  animation:noise 0.5s steps(2) infinite;
+  pointer-events:none;opacity:0.6;
+}
+@keyframes noise{
+  0%{background-position:0 0;}
+  25%{background-position:-50px -30px;}
+  50%{background-position:30px 20px;}
+  75%{background-position:-20px 40px;}
+  100%{background-position:0 0;}
+}
+.project-metrics .label{
+  font-family:'Space Mono',monospace;font-size:10px;
+  color:rgba(255,255,255,0.4);letter-spacing:0.1em;
+  margin-bottom:8px;position:relative;z-index:1;
+}
+.project-metrics .value{
+  font-size:clamp(22px,3vw,32px);font-weight:700;
+  letter-spacing:-0.02em;position:relative;z-index:1;
+}
+
+/* PROCESS STEPS */
+.project-steps{
+  max-width:900px;
+  margin:0 auto 80px;
+  display:flex;
+  flex-direction:column;
+  gap:80px;
+}
+.step-block{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.step-image{
+  width:100%;
+  background:#f5f5f5;
+  border-radius:12px;
+  overflow:hidden;
+}
+.step-image img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+.step-title{
+  font-size:clamp(22px,2.6vw,32px);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.2;
+  margin-top:6px;
+}
+.step-text{
+  font-size:15px;
+  color:var(--muted);
+  line-height:1.65;
+  max-width:680px;
+}
+
+/* CTA */
+.project-cta{
+  background:var(--black);color:var(--white);
+  border-radius:var(--radius);padding:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:40px;margin-bottom:80px;flex-wrap:wrap;
+}
+.project-cta h2{
+  font-size:clamp(28px,4vw,48px);font-weight:700;
+  letter-spacing:-0.03em;line-height:1.1;
+  max-width:480px;
+}
+.project-cta .btn{background:var(--white);color:var(--black);border-color:var(--white);}
+.project-cta .btn:hover{background:var(--red);border-color:var(--red);color:var(--white);}
+
+/* FOOTER */
+.footer{background:var(--black);color:var(--white);padding:48px 0 32px;}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:28px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:14px;}
+.footer-brand-mark{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;}
+.footer-brand-mark .mark{width:22px;height:22px;background:var(--red);border-radius:4px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:260px;}
+.footer-col h4{font-size:10px;font-family:'Space Mono',monospace;color:rgba(255,255,255,0.3);letter-spacing:0.1em;margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;transition:color .2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-big{font-size:clamp(32px,6vw,80px);font-weight:700;letter-spacing:-0.04em;color:rgba(255,255,255,0.05);margin:24px 0;line-height:1;overflow:hidden;white-space:nowrap;}
+.footer-socials{display:flex;gap:16px;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+
+@media(max-width:900px){
+  .project-header-top{grid-template-columns:1fr;gap:16px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .container{padding:0 16px;}
+  .project-images{grid-template-columns:1fr;}
+  .project-cta{padding:32px;}
+  .footer-top{grid-template-columns:1fr;}
+  .detail-row{grid-template-columns:1fr;gap:4px;}
+  .detail-value{text-align:left;}
+}
+
+/* NOISE / GRAIN — dark surfaces */
+.nav-inner,
+.project-metrics,
+.project-cta,
+.footer,
+.services-section,
+.pricing-section,
+.testimonial-card-black,
+.hero-card-right {
+  position: relative;
+  overflow: hidden;
+}
+.nav-inner::after,
+.project-metrics::after,
+.project-cta::after,
+.footer::after,
+.services-section::after,
+.pricing-section::after,
+.testimonial-card-black::after,
+.hero-card-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+}
+
+/* COOKIE BANNER */
+.cookie-banner{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:200;
+  background:#0A0A0A;color:#FFF;
+  font-family:'Space Mono',monospace;font-size:12px;line-height:1.5;
+  padding:14px 18px;border-radius:12px;
+  display:none;align-items:center;gap:16px;
+  max-width:620px;width:calc(100% - 40px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
+}
+.cookie-banner .cookie-text{flex:1;color:rgba(255,255,255,0.85);}
+.cookie-banner a{color:rgba(255,255,255,0.6);text-decoration:underline;text-underline-offset:2px;}
+.cookie-banner a:hover{color:#FFF;}
+.cookie-btn{
+  background:#FF4F17;color:#FFF;border:none;
+  font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;
+  padding:9px 14px;border-radius:999px;cursor:pointer;flex-shrink:0;
+  transition:background .2s,color .2s;
+}
+.cookie-btn:hover{background:#FFF;color:#0A0A0A;}
+@media(max-width:600px){
+  .cookie-banner{flex-direction:column;align-items:stretch;gap:10px;text-align:center;}
+}
+
+/* MOBILE NAV — Hamburger + Overlay */
+.nav-hamburger{
+  display:none;
+  width:44px;height:44px;
+  background:transparent;border:none;
+  cursor:pointer;padding:10px;
+  position:relative;
+}
+.nav-hamburger span{
+  display:block;width:24px;height:2px;
+  background:#FF4F17;border-radius:2px;
+  position:absolute;left:10px;
+  transition:transform .3s ease,top .3s ease,opacity .2s ease;
+}
+.nav-hamburger span:nth-child(1){top:14px;}
+.nav-hamburger span:nth-child(2){top:21px;}
+.nav-hamburger span:nth-child(3){top:28px;}
+.nav-hamburger.is-active span:nth-child(1){top:21px;transform:rotate(45deg);}
+.nav-hamburger.is-active span:nth-child(2){opacity:0;}
+.nav-hamburger.is-active span:nth-child(3){top:21px;transform:rotate(-45deg);}
+
+.nav-overlay{
+  position:fixed;top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9999;
+  background:#0A0A0A;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  opacity:0;transform:translateY(-20px);
+  pointer-events:none;
+  transition:opacity .35s ease,transform .35s ease;
+  overflow:hidden;
+}
+.nav-overlay.is-open{opacity:1;transform:none;pointer-events:auto;}
+.nav-overlay-links{
+  display:flex;flex-direction:column;gap:20px;align-items:center;
+  position:relative;z-index:2;
+}
+.nav-overlay-links a{
+  display:block;width:100%;text-align:center;
+  font-family:'Geist',sans-serif;
+  font-size:clamp(36px,10vw,64px);
+  font-weight:500;letter-spacing:-0.02em;
+  color:#fff;text-decoration:none;
+  transition:opacity .2s ease;
+}
+.nav-overlay-links a:hover{opacity:.7;}
+.nav-overlay-links a.is-cta{color:#FF4F17;}
+.nav-overlay-close{
+  position:absolute;top:20px;right:20px;z-index:3;
+  width:44px;height:44px;padding:0;margin:0;
+  background:none;background-color:transparent;
+  border:none;outline:none;box-shadow:none;
+  -webkit-appearance:none;appearance:none;
+  color:#FF4F17;font-size:32px;line-height:1;
+  cursor:pointer;font-weight:300;
+  transition:transform .2s ease;
+}
+.nav-overlay-close:focus,.nav-overlay-close:focus-visible,
+.nav-overlay-close:hover,.nav-overlay-close:active{
+  background:none;background-color:transparent;
+  outline:none;box-shadow:none;border:none;
+}
+.nav-overlay-close:hover{transform:rotate(90deg);}
+.nav-overlay-footer{
+  position:absolute;bottom:32px;left:0;right:0;z-index:2;
+  display:flex;flex-direction:column;gap:8px;align-items:center;
+  font-family:'Space Mono',monospace;font-size:12px;
+  color:rgba(255,255,255,0.4);
+}
+.nav-overlay-footer a{color:inherit;text-decoration:none;}
+.nav-overlay-footer a:hover{color:#fff;}
+
+@media(max-width:768px){
+  .nav-inner{padding:12px 20px;}
+  .nav-brand img{height:36px !important;}
+  .nav-links,.nav-cta{display:none !important;}
+  .nav-inner > a.btn,.nav-inner > .btn-sm{display:none !important;}
+  .nav-hamburger{display:flex;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="logos/fss-logo.webp" alt="Full Square Studios" height="36" style="display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html#works">Works</a>
+      <a href="index.html#services">Services</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html#contact" class="btn btn-sm">Projekt starten →</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen" aria-controls="navOverlay" aria-expanded="false" type="button">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PROJECT HEADER -->
+<section class="project-header">
+  <div class="container">
+    <div class="project-header-top reveal">
+      <div class="project-label">+ PROJECT</div>
+      <div>
+        <div class="project-title">
+          Colorblnd Mgmt
+          <span class="project-year">2024</span>
+        </div>
+        <p class="project-desc">Eine charakterstarke Website für eine Model- &amp; Talent-Agentur — wo Persönlichkeit über Konvention triumphiert. Character over numbers.</p>
+      </div>
+      <div class="badge">Projects</div>
+    </div>
+
+    <div class="project-details reveal reveal-delay-1">
+      <div class="detail-row">
+        <span class="detail-label">Industry</span>
+        <span class="detail-value">Model &amp; Talent Agency</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Scope of Work</span>
+        <span class="detail-value">Website Design · Development · Brand Identity</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Timeline</span>
+        <span class="detail-value">5 Wochen</span>
+      </div>
+    </div>
+
+    <div class="project-metrics reveal reveal-delay-2">
+      <div class="label">KEY METRICS</div>
+      <div class="value">Models &amp; Talents für Brands wie Fritz-Kola, Adidas &amp; mehr</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS STEPS -->
+<div class="container">
+  <div class="project-steps">
+
+    <div class="step-block reveal">
+      <div class="badge">+ SCHRITT 01</div>
+      <div class="step-image">
+        <img src="projects/colorblnd-01.webp" alt="Colorblnd Mgmt — Sketch" loading="lazy"/>
+      </div>
+      <h3 class="step-title">Die Idee entsteht</h3>
+      <p class="step-text">Alles beginnt mit dem Verständnis der Marke. Colorblnd steht für Persönlichkeit über Maßen — Character over numbers. Diese Kernbotschaft wurde zur Basis für alle Design-Entscheidungen.</p>
+    </div>
+
+    <div class="step-block reveal">
+      <div class="badge">+ SCHRITT 02</div>
+      <div class="step-image">
+        <img src="projects/colorblnd-02.webp" alt="Colorblnd Mgmt — Layout" loading="lazy"/>
+      </div>
+      <h3 class="step-title">Struktur &amp; Layout</h3>
+      <p class="step-text">Verschiedene Layout-Ansätze wurden entwickelt. Der Fokus lag auf einer klaren Roster-Struktur, die Models und Talents in den Vordergrund stellt.</p>
+    </div>
+
+    <div class="step-block reveal">
+      <div class="badge">+ SCHRITT 03</div>
+      <div class="step-image">
+        <img src="projects/colorblnd-03.webp" alt="Colorblnd Mgmt — UI" loading="lazy"/>
+      </div>
+      <h3 class="step-title">Das Design-System</h3>
+      <p class="step-text">Typografie, Farben und Komponenten zu einem System zusammengeführt. Warmes Off-White, Near-Black und Violet-Akzent schaffen eine unverwechselbare visuelle Sprache.</p>
+    </div>
+
+    <div class="step-block reveal">
+      <div class="badge">+ SCHRITT 04</div>
+      <div class="step-image">
+        <img src="projects/colorblnd-04.webp" alt="Colorblnd Mgmt — Final" loading="lazy"/>
+      </div>
+      <h3 class="step-title">Das fertige Ergebnis</h3>
+      <p class="step-text">Eine Website, die Charakter zeigt. Das fisheye-Bild im Hero, editoriale Bildsprache im Roster — ein digitaler Auftritt der in Erinnerung bleibt.</p>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="project-cta reveal">
+    <h2>Bereit für dein nächstes Projekt?</h2>
+    <a href="index.html#contact" class="btn">Projekt starten →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logos/fss-logo.webp" alt="Full Square Studios" style="opacity:0.9;width:auto;max-height:32px;max-width:200px;display:block;">
+        <p class="footer-tagline">Ein unabhängiges Studio für Webdesign &amp; Branding. Weltweit tätig.</p>
+      </div>
+      <div class="footer-col">
+        <h4>STUDIO</h4>
+        <a href="index.html#works">Works</a>
+        <a href="index.html#services">Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>KONTAKT</h4>
+        <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+        <a href="https://wa.me/491738996449" target="_blank">WhatsApp schreiben →</a>
+        <a href="index.html#contact">Termin buchen →</a>
+      </div>
+      <div class="footer-col">
+        <h4>SOCIAL</h4>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Dribbble</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Full Square Studios</span>
+      <div class="footer-socials">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">Wir verwenden technisch notwendige Cookies. Keine Tracking-Cookies. <a href="datenschutz.html">Mehr erfahren →</a></p>
+  <button class="cookie-btn" id="cookieAccept">Verstanden</button>
+</div>
+<script>
+(function(){
+  const KEY='fss-cookie-consent';
+  const DAYS=365;
+  const banner=document.getElementById('cookieBanner');
+  const btn=document.getElementById('cookieAccept');
+  if(!banner||!btn) return;
+  const stored=localStorage.getItem(KEY);
+  if(stored){
+    const ts=parseInt(stored,10);
+    if(!isNaN(ts) && Date.now()-ts < DAYS*86400000) return;
+  }
+  banner.style.display='flex';
+  btn.addEventListener('click',function(){
+    localStorage.setItem(KEY,Date.now().toString());
+    banner.style.display='none';
+  });
+})();
+</script>
+
+<!-- MOBILE NAV OVERLAY -->
+<aside class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <button class="nav-overlay-close" id="navOverlayClose" aria-label="Menü schließen" type="button">&times;</button>
+  <nav class="nav-overlay-links">
+    <a href="index.html#works">Works</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact" class="is-cta">Projekt starten →</a>
+  </nav>
+  <div class="nav-overlay-footer">
+    <a href="https://www.instagram.com/fullsquare.studios/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+  </div>
+</aside>
+
+<script>
+(function(){
+  const burger=document.getElementById('navHamburger');
+  const overlay=document.getElementById('navOverlay');
+  const closeBtn=document.getElementById('navOverlayClose');
+  if(!burger||!overlay) return;
+  function open(){
+    burger.classList.add('is-active');
+    burger.setAttribute('aria-expanded','true');
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('is-active');
+    burger.setAttribute('aria-expanded','false');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',function(){
+    if(overlay.classList.contains('is-open')) close(); else open();
+  });
+  if(closeBtn) closeBtn.addEventListener('click',close);
+  overlay.querySelectorAll('.nav-overlay-links a').forEach(a=>{
+    a.addEventListener('click',close);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('is-open')) close();
+  });
+  // Noise canvas
+  const canvas=document.createElement('canvas');
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.08;z-index:1;';
+  overlay.insertBefore(canvas,overlay.firstChild);
+  const ctx=canvas.getContext('2d');
+  function resize(){canvas.width=overlay.offsetWidth;canvas.height=overlay.offsetHeight;}
+  function draw(){
+    if(overlay.classList.contains('is-open')){
+      const w=canvas.width,h=canvas.height;
+      if(w&&h){
+        const id=ctx.createImageData(w,h);
+        const d=id.data;
+        for(let i=0;i<d.length;i+=4){
+          const v=Math.random()*255;d[i]=v;d[i+1]=v;d[i+2]=v;d[i+3]=255;
+        }
+        ctx.putImageData(id,0,0);
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize();
+  draw();
+  window.addEventListener('resize',resize);
+})();
+</script>
+</body>
+</html>

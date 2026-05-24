@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Datenschutzerklärung — Full Square Studios</title>
+<meta name="description" content="Datenschutzerklärung von Full Square Studios — Webdesign & Branding aus Frankfurt am Main."/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Geist',sans-serif;background:#F5F5F5;color:#0A0A0A;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+
+:root{
+  --red:#FF4F17;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --bg:#F5F5F5;
+  --bg2:#EFEFEF;
+  --muted:#6B6B6B;
+  --radius:12px;
+}
+
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Space Mono',monospace;font-size:11px;
+  color:var(--black);background:var(--white);
+  border:1px solid rgba(10,10,10,0.12);
+  border-radius:999px;padding:5px 12px;
+}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Geist',sans-serif;font-size:14px;font-weight:500;
+  background:var(--black);color:var(--white);
+  border:1.5px solid var(--black);border-radius:999px;
+  padding:12px 22px;cursor:pointer;transition:all .2s;
+}
+.btn:hover{background:var(--red);border-color:var(--red);}
+.btn-sm{padding:9px 18px;font-size:13px;font-weight:500;}
+
+/* NAV */
+.nav{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  z-index:100;width:calc(100% - 64px);max-width:1200px;
+}
+.nav-inner{
+  background:var(--black);color:var(--white);
+  border-radius:999px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  box-shadow:0 4px 32px rgba(0,0,0,0.2);
+}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;}
+.nav-logo-mark{width:20px;height:20px;background:var(--red);border-radius:4px;flex-shrink:0;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);padding:6px 12px;border-radius:999px;transition:all .2s;}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.1);}
+
+/* LEGAL PAGE */
+.legal-page{
+  padding-top:140px;padding-bottom:80px;
+  max-width:720px;margin:0 auto;
+}
+.legal-page .badge{margin-bottom:24px;}
+.legal-page h1{
+  font-size:clamp(36px,5vw,56px);font-weight:700;
+  letter-spacing:-0.03em;line-height:1.05;
+  margin-bottom:40px;
+}
+.legal-page h2{
+  font-size:18px;font-weight:600;letter-spacing:-0.01em;
+  margin-top:36px;margin-bottom:12px;
+}
+.legal-page h2:first-of-type{margin-top:0;}
+.legal-page p{
+  font-size:15px;color:#2a2a2a;line-height:1.7;
+  margin-bottom:12px;
+}
+.legal-page ul{
+  list-style:disc;padding-left:20px;
+  font-size:15px;color:#2a2a2a;line-height:1.7;
+  margin-bottom:12px;
+}
+.legal-page li{margin-bottom:6px;}
+.legal-page p strong{color:var(--black);font-weight:600;}
+.legal-page a{
+  color:var(--red);text-decoration:underline;
+  text-underline-offset:2px;
+}
+.legal-page a:hover{color:var(--black);}
+
+/* FOOTER */
+.footer{background:var(--black);color:var(--white);padding:48px 0 32px;}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:28px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:14px;}
+.footer-brand-mark{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;}
+.footer-brand-mark .mark{width:22px;height:22px;background:var(--red);border-radius:4px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;max-width:260px;}
+.footer-col h4{font-size:10px;font-family:'Space Mono',monospace;color:rgba(255,255,255,0.3);letter-spacing:0.1em;margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;transition:color .2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-big{font-size:clamp(32px,6vw,80px);font-weight:700;letter-spacing:-0.04em;color:rgba(255,255,255,0.05);margin:24px 0;line-height:1;overflow:hidden;white-space:nowrap;}
+.footer-socials{display:flex;gap:16px;}
+
+/* COOKIE BANNER */
+.cookie-banner{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  z-index:200;
+  background:#0A0A0A;color:#FFF;
+  font-family:'Space Mono',monospace;font-size:12px;line-height:1.5;
+  padding:14px 18px;border-radius:12px;
+  display:none;align-items:center;gap:16px;
+  max-width:620px;width:calc(100% - 40px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
+}
+.cookie-banner .cookie-text{flex:1;color:rgba(255,255,255,0.85);}
+.cookie-banner a{color:rgba(255,255,255,0.6);text-decoration:underline;text-underline-offset:2px;}
+.cookie-banner a:hover{color:#FFF;}
+.cookie-btn{
+  background:#FF4F17;color:#FFF;border:none;
+  font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;
+  padding:9px 14px;border-radius:999px;cursor:pointer;flex-shrink:0;
+  transition:background .2s,color .2s;
+}
+.cookie-btn:hover{background:#FFF;color:#0A0A0A;}
+@media(max-width:600px){
+  .cookie-banner{flex-direction:column;align-items:stretch;gap:10px;text-align:center;}
+}
+
+@media(max-width:900px){
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .container{padding:0 16px;}
+  .footer-top{grid-template-columns:1fr;}
+}
+
+/* MOBILE NAV — Hamburger + Overlay */
+.nav-hamburger{
+  display:none;
+  width:44px;height:44px;
+  background:transparent;border:none;
+  cursor:pointer;padding:10px;
+  position:relative;
+}
+.nav-hamburger span{
+  display:block;width:24px;height:2px;
+  background:#FF4F17;border-radius:2px;
+  position:absolute;left:10px;
+  transition:transform .3s ease,top .3s ease,opacity .2s ease;
+}
+.nav-hamburger span:nth-child(1){top:14px;}
+.nav-hamburger span:nth-child(2){top:21px;}
+.nav-hamburger span:nth-child(3){top:28px;}
+.nav-hamburger.is-active span:nth-child(1){top:21px;transform:rotate(45deg);}
+.nav-hamburger.is-active span:nth-child(2){opacity:0;}
+.nav-hamburger.is-active span:nth-child(3){top:21px;transform:rotate(-45deg);}
+
+.nav-overlay{
+  position:fixed;top:0;left:0;
+  width:100vw;height:100vh;
+  z-index:9999;
+  background:#0A0A0A;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  opacity:0;transform:translateY(-20px);
+  pointer-events:none;
+  transition:opacity .35s ease,transform .35s ease;
+  overflow:hidden;
+}
+.nav-overlay.is-open{opacity:1;transform:none;pointer-events:auto;}
+.nav-overlay-links{
+  display:flex;flex-direction:column;gap:20px;align-items:center;
+  position:relative;z-index:2;
+}
+.nav-overlay-links a{
+  display:block;width:100%;text-align:center;
+  font-family:'Geist',sans-serif;
+  font-size:clamp(36px,10vw,64px);
+  font-weight:500;letter-spacing:-0.02em;
+  color:#fff;text-decoration:none;
+  transition:opacity .2s ease;
+}
+.nav-overlay-links a:hover{opacity:.7;}
+.nav-overlay-links a.is-cta{color:#FF4F17;}
+.nav-overlay-close{
+  position:absolute;top:20px;right:20px;z-index:3;
+  width:44px;height:44px;padding:0;margin:0;
+  background:none;background-color:transparent;
+  border:none;outline:none;box-shadow:none;
+  -webkit-appearance:none;appearance:none;
+  color:#FF4F17;font-size:32px;line-height:1;
+  cursor:pointer;font-weight:300;
+  transition:transform .2s ease;
+}
+.nav-overlay-close:focus,.nav-overlay-close:focus-visible,
+.nav-overlay-close:hover,.nav-overlay-close:active{
+  background:none;background-color:transparent;
+  outline:none;box-shadow:none;border:none;
+}
+.nav-overlay-close:hover{transform:rotate(90deg);}
+.nav-overlay-footer{
+  position:absolute;bottom:32px;left:0;right:0;z-index:2;
+  display:flex;flex-direction:column;gap:8px;align-items:center;
+  font-family:'Space Mono',monospace;font-size:12px;
+  color:rgba(255,255,255,0.4);
+}
+.nav-overlay-footer a{color:inherit;text-decoration:none;}
+.nav-overlay-footer a:hover{color:#fff;}
+
+@media(max-width:768px){
+  .nav-inner{padding:12px 20px;}
+  .nav-brand img{height:36px !important;}
+  .nav-links,.nav-cta{display:none !important;}
+  .nav-inner > a.btn,.nav-inner > .btn-sm{display:none !important;}
+  .nav-hamburger{display:flex;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="logos/fss-logo.webp" alt="Full Square Studios" height="36" style="display:block;">
+    </a>
+    <div class="nav-links">
+      <a href="index.html#works">Works</a>
+      <a href="index.html#services">Services</a>
+    </div>
+    <a href="index.html#contact" class="btn btn-sm">Projekt starten →</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen" aria-controls="navOverlay" aria-expanded="false" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- LEGAL CONTENT -->
+<section class="legal-page">
+  <div class="container">
+    <div class="badge">Rechtliches</div>
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>Verantwortlicher</h2>
+    <p>
+      Mohammed Chakir El Haji<br/>
+      Hortensienring 18<br/>
+      65929 Frankfurt am Main<br/>
+      E-Mail: <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+    </p>
+
+    <h2>Hosting</h2>
+    <p>
+      Diese Website wird gehostet bei Netlify Inc., 512 2nd Street, San Francisco, CA 94107, USA. Beim Aufruf der Website werden technisch notwendige Server-Logs automatisch erfasst — darunter IP-Adresse, Zeitpunkt des Zugriffs, abgerufene URL, übertragene Datenmenge und User-Agent. Diese Daten dienen ausschließlich der Sicherstellung des Betriebs und werden nicht mit anderen Datenquellen zusammengeführt.
+    </p>
+
+    <h2>Google Fonts</h2>
+    <p>
+      Auf dieser Website werden Google Fonts der Google Ireland Limited eingebunden. Beim Laden der Schriftarten wird eine Verbindung zu Google-Servern aufgebaut. Dabei kann die IP-Adresse des Nutzers an Google übertragen werden. Die Einbindung erfolgt im berechtigten Interesse einer einheitlichen Darstellung der Website (Art. 6 Abs. 1 lit. f DSGVO).
+    </p>
+
+    <h2>Kontaktformular &amp; E-Mail-Kontakt</h2>
+    <p>
+      Wenn du uns über das Kontaktformular oder per E-Mail erreichst, werden deine Angaben (Name, E-Mail-Adresse, Nachricht) ausschließlich zur Bearbeitung der Anfrage verwendet. Eine Weitergabe an Dritte erfolgt nicht. Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+    </p>
+
+    <h2>Rechte der Nutzer</h2>
+    <p>Du hast nach DSGVO insbesondere folgende Rechte:</p>
+    <ul>
+      <li>Recht auf <strong>Auskunft</strong> über die zu deiner Person gespeicherten Daten (Art. 15 DSGVO)</li>
+      <li>Recht auf <strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+      <li>Recht auf <strong>Löschung</strong> deiner Daten (Art. 17 DSGVO)</li>
+      <li>Recht auf <strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Recht auf <strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+      <li>Recht auf <strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+      <li>Recht auf Beschwerde bei einer Aufsichtsbehörde</li>
+    </ul>
+    <p>
+      Zur Ausübung deiner Rechte genügt eine formlose E-Mail an <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>.
+    </p>
+
+    <h2>Keine Tracking-Cookies</h2>
+    <p>
+      Diese Website verwendet ausschließlich technisch notwendige Cookies (z.&nbsp;B. zur Speicherung der Cookie-Banner-Bestätigung). Es werden <strong>keine Tracking-Cookies, kein Google Analytics, keine Marketing-Pixel und keine externen Analyse-Tools</strong> eingesetzt.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logos/fss-logo.webp" alt="Full Square Studios" style="opacity:0.9;width:auto;max-height:32px;max-width:200px;display:block;">
+        <p class="footer-tagline">Ein unabhängiges Studio für Webdesign &amp; Branding. Weltweit tätig.</p>
+      </div>
+      <div class="footer-col">
+        <h4>STUDIO</h4>
+        <a href="index.html#works">Works</a>
+        <a href="index.html#services">Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>KONTAKT</h4>
+        <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+        <a href="https://wa.me/491738996449" target="_blank">WhatsApp schreiben →</a>
+        <a href="index.html#contact">Termin buchen →</a>
+      </div>
+      <div class="footer-col">
+        <h4>SOCIAL</h4>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Dribbble</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Full Square Studios</span>
+      <div class="footer-socials">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">Wir verwenden technisch notwendige Cookies. Keine Tracking-Cookies. <a href="datenschutz.html">Mehr erfahren →</a></p>
+  <button class="cookie-btn" id="cookieAccept">Verstanden</button>
+</div>
+
+<script>
+(function(){
+  const KEY='fss-cookie-consent';
+  const DAYS=365;
+  const banner=document.getElementById('cookieBanner');
+  const btn=document.getElementById('cookieAccept');
+  if(!banner||!btn) return;
+  const stored=localStorage.getItem(KEY);
+  if(stored){
+    const ts=parseInt(stored,10);
+    if(!isNaN(ts) && Date.now()-ts < DAYS*86400000) return;
+  }
+  banner.style.display='flex';
+  btn.addEventListener('click',function(){
+    localStorage.setItem(KEY,Date.now().toString());
+    banner.style.display='none';
+  });
+})();
+</script>
+
+<!-- MOBILE NAV OVERLAY -->
+<aside class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <button class="nav-overlay-close" id="navOverlayClose" aria-label="Menü schließen" type="button">&times;</button>
+  <nav class="nav-overlay-links">
+    <a href="index.html#works">Works</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#contact" class="is-cta">Projekt starten →</a>
+  </nav>
+  <div class="nav-overlay-footer">
+    <a href="https://www.instagram.com/fullsquare.studios/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@fullsquarestudios.com">hello@fullsquarestudios.com</a>
+  </div>
+</aside>
+
+<script>
+(function(){
+  const burger=document.getElementById('navHamburger');
+  const overlay=document.getElementById('navOverlay');
+  const closeBtn=document.getElementById('navOverlayClose');
+  if(!burger||!overlay) return;
+  function open(){
+    burger.classList.add('is-active');
+    burger.setAttribute('aria-expanded','true');
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function close(){
+    burger.classList.remove('is-active');
+    burger.setAttribute('aria-expanded','false');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+  burger.addEventListener('click',function(){
+    if(overlay.classList.contains('is-open')) close(); else open();
+  });
+  if(closeBtn) closeBtn.addEventListener('click',close);
+  overlay.querySelectorAll('.nav-overlay-links a').forEach(a=>{
+    a.addEventListener('click',close);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay.classList.contains('is-open')) close();
+  });
+  // Noise canvas
+  const canvas=document.createElement('canvas');
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.08;z-index:1;';
+  overlay.insertBefore(canvas,overlay.firstChild);
+  const ctx=canvas.getContext('2d');
+  function resize(){canvas.width=overlay.offsetWidth;canvas.height=overlay.offsetHeight;}
+  function draw(){
+    if(overlay.classList.contains('is-open')){
+      const w=canvas.width,h=canvas.height;
+      if(w&&h){
+        const id=ctx.createImageData(w,h);
+        const d=id.data;
+        for(let i=0;i<d.length;i+=4){
+          const v=Math.random()*255;d[i]=v;d[i+1]=v;d[i+2]=v;d[i+3]=255;
+        }
+        ctx.putImageData(id,0,0);
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize();
+  draw();
+  window.addEventListener('resize',resize);
+})();
+</script>
+</body>
+</html>
