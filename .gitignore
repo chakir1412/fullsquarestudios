@@ -3,3 +3,7 @@
 .claude/
 CLAUDE.md
 skills-lock.json
+
+# PNG-Quellen — wir nutzen nur .webp
+logos/*.png
+projects/*.png
