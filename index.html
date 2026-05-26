@@ -102,6 +102,12 @@ img,video{display:block;max-width:100%;}
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 24px;
   box-shadow:0 4px 32px rgba(0,0,0,0.2);
+  transition:background .3s ease,backdrop-filter .3s ease;
+}
+.nav-inner.scrolled{
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 }
 .nav-brand{
   display:flex;align-items:center;gap:10px;
@@ -277,6 +283,12 @@ img,video{display:block;max-width:100%;}
 .project-card{
   display:block;cursor:pointer;color:inherit;
   text-decoration:none;
+  border-radius:12px;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.project-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.12);
 }
 .project-cover{
   aspect-ratio:16/9;
@@ -298,7 +310,9 @@ img,video{display:block;max-width:100%;}
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 18px;background:var(--white);border-radius:var(--radius-sm);
   gap:16px;
+  transition:background .3s ease;
 }
+.project-card:hover .project-bottom{background:#f0f0f0;}
 .project-meta-text{display:flex;flex-direction:column;gap:4px;min-width:0;}
 .project-name{
   font-size:16px;font-weight:600;transition:color .2s;
@@ -986,18 +1000,18 @@ img,video{display:block;max-width:100%;}
     <div class="metrics-grid reveal">
       <div class="metrics-cards">
         <div class="metric-black">
-          <div class="num">7</div>
+          <div class="num" data-target="7">7</div>
           <div class="label">Jahre Erfahrung</div>
           <div class="desc">Webdesign &amp; Branding für lokale Unternehmen, Agenturen und Startups.</div>
         </div>
         <div class="metric-light">
           <p>Von der Landing Page bis zum kompletten Markensystem.</p>
-          <div class="num">48+</div>
+          <div class="num" data-target="48" data-suffix="+">48+</div>
           <div class="label">Projekte abgeschlossen</div>
         </div>
         <div class="metric-cta" style="grid-column:span 2;">
           <div class="label">Google Bewertung</div>
-          <div class="num">5,0 ★</div>
+          <div class="num" data-target="5" data-decimals="1" data-suffix=" ★">5,0 ★</div>
           <a href="#contact" class="btn" style="margin-top:8px;align-self:flex-start;">Projekt starten →</a>
         </div>
       </div>
@@ -1212,6 +1226,42 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, {threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Count-up animation
+const countUpObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(!e.isIntersecting || e.target.dataset.animated) return;
+    e.target.dataset.animated = '1';
+    const el = e.target;
+    const target = parseFloat(el.dataset.target);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1500;
+    const start = performance.now();
+    function tick(now){
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = target * eased;
+      el.textContent = val.toFixed(decimals).replace('.', ',') + suffix;
+      if(t < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toFixed(decimals).replace('.', ',') + suffix;
+    }
+    requestAnimationFrame(tick);
+  });
+}, {threshold:0.5});
+document.querySelectorAll('.num[data-target]').forEach(el => countUpObserver.observe(el));
+
+// Nav scroll blur
+(function(){
+  const navInner = document.querySelector('.nav-inner');
+  if(!navInner) return;
+  function onScroll(){
+    if(window.scrollY > 20) navInner.classList.add('scrolled');
+    else navInner.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
 </script>
 
 <script>
